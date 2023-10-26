@@ -1,22 +1,25 @@
 // const { sequelize, Sequelize } = require(".");
 
 module.exports = (sequelize, Sequelize) => {
-    const user = sequelize.define(
+    const tweet = sequelize.define(
       "tweet",
       {
-        username: {
+        user_id: {
+          type: Sequelize.INTEGER,
+        },
+        tweet: {
           type: Sequelize.STRING,
         },
-        email: {
-          type: Sequelize.STRING,
+        createdAt:{
+          type: Sequelize.DATE,
         },
-        password:{
-          type: Sequelize.STRING,
+        updatedAt:{
+          type: Sequelize.DATE,
         }
       },
       {
-        timestamps: false,
-        tableName: "tweets",
+        timestamps: true,
+        tableName: "tweet",
       }
     );
   
@@ -24,6 +27,6 @@ module.exports = (sequelize, Sequelize) => {
     //     user.belongsTo(models.branch, {foreignKey: "branchId"})
     // }
   
-    return user;
+    return tweet;
   };
   

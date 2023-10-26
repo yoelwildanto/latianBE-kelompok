@@ -6,8 +6,8 @@ require("dotenv").config({
     path: path.resolve(__dirname, "../.env")
 })
 
-// const db = require("../src/models")
-// db.sequelize.sync({alter:true})
+const db = require("../src/models")
+db.sequelize.sync({alter:true})
 
 const PORT = process.env.PORT || 8000;
 
@@ -23,7 +23,7 @@ app.use(
     })
 );
 
-const Router = require("./routes/router");
+const Router = require("./routes/Router");
 app.use("/twitter", Router)
 
 app.listen(PORT, (req, res) =>{
